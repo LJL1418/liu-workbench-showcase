@@ -3,265 +3,445 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Liu的工作台 | 一体化 YOLO 训练平台</title>
+    <meta name="theme-color" content="#ffffff" />
     <meta
       name="description"
-      content="Liu的工作台是面向本地 YOLO 训练、数据标注、模型测试和 AI 分析的一体化平台"
+      content="Liu Studio 是面向本机与内网部署的 YOLO11 目标检测训练与智能辅助平台，覆盖数据、训练、监控、复盘、测试、知识问答与模型导出全流程。"
     />
+    <title>Liu Studio｜YOLO 训练与智能辅助平台</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="scroll-progress" aria-hidden="true"></div>
+
     <header class="site-header" aria-label="页面导航">
-      <a class="brand-link" href="#top" aria-label="返回顶部">
-        <span class="brand-mark"></span>
-        <span>Liu的工作台</span>
+      <a class="brand" href="#top" aria-label="返回页面顶部">
+        <img
+          src="./assets/logo.jpg"
+          alt=""
+          width="36"
+          height="36"
+        />
+        <span>Liu Studio</span>
       </a>
+
       <nav class="top-nav" aria-label="主要章节">
-        <a href="#capabilities">亮点</a>
-        <a href="#workflow">流程</a>
-        <a href="#modules">模块</a>
+        <a href="#highlights">平台亮点</a>
+        <a href="#workflow">训练闭环</a>
+        <a href="#intelligence">智能能力</a>
+        <a href="#modules">功能全景</a>
+        <a href="#architecture">技术架构</a>
       </nav>
+
+      <a class="header-cta" href="#modules">浏览功能 <span aria-hidden="true">↘</span></a>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <p class="eyebrow">Local Vision Model Workbench</p>
-        <h1 id="hero-title">Liu的工作台</h1>
-        <p class="hero-copy">
-          围绕 YOLO 训练的本地工作台，覆盖数据准备、训练配置、任务监控、结果复盘、模型测试和智能问答
-        </p>
-        <div class="hero-stats" aria-label="平台关键能力">
-          <span>控制总台</span>
-          <span>数据管理</span>
-          <span>新建训练</span>
-          <span>任务监控</span>
-          <span>数据标注</span>
-          <span>模型测试</span>
-          <span>GPU 调度</span>
-          <span>智能问答</span>
-        </div>
-
-        <figure class="device device--hero" aria-label="平台控制总台截图">
-          <div class="device-topbar">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-copy-wrap">
+          <p class="eyebrow"><span></span> Local · Multi-user · YOLO11</p>
+          <h1 id="hero-title">
+            <span class="hero-product">Liu Studio</span>
+            <span class="hero-title-line">目标检测训练与智能辅助平台</span>
+          </h1>
+          <p class="hero-copy">
+            <strong>把目标检测研发的每一步，收进一个工作台。</strong>
+            平台面向本机与内网服务器部署，覆盖数据标注、GPU 调度、训练分析、知识库问答、
+            工具调用及 ONNX / 昇腾 OM 交付；所涉及模型均为本地部署。
+          </p>
+          <div class="hero-actions">
+            <a class="button button--primary" href="#workflow">查看完整闭环 <span>↓</span></a>
+            <a class="button button--secondary" href="#intelligence">了解 AI 能力</a>
           </div>
-          <img src="./assets/screenshots/dashboard.png" alt="Liu的工作台控制总台界面" />
-          <figcaption class="hero-caption">
-            <span>Live Console</span>
-            <strong>任务、资源、结果一屏汇总</strong>
-          </figcaption>
-        </figure>
-      </section>
-
-      <section id="capabilities" class="capabilities" aria-labelledby="capabilities-title">
-        <div class="section-heading section-reveal">
-          <p class="eyebrow">What Stands Out</p>
-          <h2 id="capabilities-title">先把最容易割裂的环节接起来</h2>
+          <div class="hero-facts" aria-label="平台能力摘要">
+            <div><strong>10+</strong><span>核心功能模块</span></div>
+            <div><strong>全本地</strong><span>LLM · Embedding · Reranker</span></div>
+            <div><strong>2</strong><span>套知识库检索</span></div>
+            <div><strong>N 轮</strong><span>Agent 自动训练</span></div>
+          </div>
         </div>
 
-        <div class="capability-grid">
-          <article class="capability-card capability-card--featured section-reveal">
-            <span class="metric">01</span>
-            <h3>标注到导出</h3>
-            <p>从图片管理、矩形框标注到 YOLO 数据集导出，先把训练材料准备好</p>
-          </article>
-          <article class="capability-card section-reveal">
-            <span class="metric">02</span>
-            <h3>GPU 感知训练</h3>
-            <p>配置模型、数据集和训练参数后进入队列，由平台分配空闲设备并实时推送日志</p>
-          </article>
-          <article class="capability-card section-reveal">
-            <span class="metric">03</span>
-            <h3>结果复盘</h3>
-            <p>训练曲线、混淆矩阵、权重文件和 AI 报告一起归档，方便比较每一轮表现</p>
-          </article>
-          <article class="capability-card capability-card--agent section-reveal">
-            <span class="metric">04</span>
-            <h3>Agent 调用</h3>
-            <p>复盘之后继续追问，Agent 可查模型、查数据，并调用检测工具验证样本</p>
-          </article>
+        <div class="hero-stage">
+          <div class="orbit-note orbit-note--left" aria-hidden="true">
+            <span class="status-dot"></span>
+            <div><small>GPU Scheduler</small><strong>多卡 DDP · FIFO 排队</strong></div>
+          </div>
+          <div class="orbit-note orbit-note--right" aria-hidden="true">
+            <small>Agent Round</small>
+            <strong>分析 → 调参 → 再训练</strong>
+          </div>
+          <figure class="browser-frame browser-frame--hero image-trigger" data-image="./assets/screenshots/login.jpg">
+            <div class="browser-bar">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <span class="browser-url">Liu Studio / 登录</span>
+              <button type="button" class="expand-button" aria-label="放大 Liu Studio 登录页截图">↗</button>
+            </div>
+            <img src="./assets/screenshots/login.jpg" alt="Liu Studio 产品登录页面" fetchpriority="high" decoding="async" />
+          </figure>
         </div>
       </section>
 
-      <section id="workflow" class="workflow" aria-labelledby="workflow-title">
+      <section class="tech-strip" aria-label="主要技术与能力">
+        <span>YOLO11</span>
+        <i></i>
+        <span>Vue 3</span>
+        <i></i>
+        <span>FastAPI</span>
+        <i></i>
+        <span>WebSocket</span>
+        <i></i>
+        <span>Local LLM</span>
+        <i></i>
+        <span>Local Embedding · Reranker</span>
+      </section>
+
+      <section id="highlights" class="section highlights" aria-labelledby="highlights-title">
         <div class="section-heading section-reveal">
-          <p class="eyebrow">Workflow</p>
-          <h2 id="workflow-title">一次训练，从准备到复盘都在同一个界面完成</h2>
+          <div>
+            <p class="eyebrow"><span></span> Why Liu Studio</p>
+            <h2 id="highlights-title">不只把命令行搬进网页<br />而是把研发链路真正接起来</h2>
+          </div>
+          <p>
+            平台围绕算法研发中的真实断点设计：数据散落、GPU 冲突、训练过程不可见、结果复盘耗时，
+            以及模型从实验走向业务验证时的重复操作。
+          </p>
         </div>
 
-        <div class="stage-viewer section-reveal">
-          <div class="stage-copy">
-            <p class="stage-kicker" id="stage-kicker">数据标注</p>
-            <h3 id="stage-title">先把训练样本整理清楚</h3>
-            <p id="stage-desc">
-              图片管理、矩形框标注、类别维护和 YOLO 数据集导出放在同一个工作台里完成
+        <div class="highlight-grid">
+          <article class="highlight-card highlight-card--dark section-reveal">
+            <div class="card-index">01</div>
+            <div class="signal-bars" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <h3>GPU 感知调度</h3>
+            <p>按 FIFO 管理训练队列，支持指定单卡、多卡 DDP、任意空闲卡与 CPU 回退；设备释放后自动唤醒可运行任务。</p>
+            <ul>
+              <li>显存占用感知与设备可用性提示</li>
+              <li>训练任务与模型测试分开抢占资源</li>
+            </ul>
+          </article>
+
+          <article class="highlight-card highlight-card--blue section-reveal">
+            <div class="card-index">02</div>
+            <div class="loop-visual" aria-hidden="true"><span>训</span><i>→</i><span>析</span><i>→</i><span>调</span></div>
+            <h3>Agent 自动调参</h3>
+            <p>每轮训练完成后，由多模态大模型读取关键指标与图表，生成新超参并创建下一轮任务，直至达到设定轮数。</p>
+            <ul>
+              <li>覆盖学习率、损失权重、数据增强等参数</li>
+              <li>多层 JSON 解析与降级策略保证链路连续</li>
+            </ul>
+          </article>
+
+          <article class="highlight-card section-reveal">
+            <div class="card-index">03</div>
+            <div class="metric-visual" aria-hidden="true">
+              <span style="--h: 38%"></span><span style="--h: 58%"></span><span style="--h: 48%"></span><span style="--h: 78%"></span><span style="--h: 92%"></span>
+            </div>
+            <h3>训练全程可见</h3>
+            <p>逐行解析 Ultralytics 日志，通过 WebSocket 推送 Loss、Precision、Recall 与 mAP，训练状态与关键事件同步更新。</p>
+            <ul>
+              <li>实时曲线、日志与预计剩余时间</li>
+              <li>指标、权重、图表与事件时间线统一归档</li>
+            </ul>
+          </article>
+
+          <article class="highlight-card section-reveal">
+            <div class="card-index">04</div>
+            <div class="tool-visual" aria-hidden="true"><span>模型</span><span>检测</span><span>ONNX</span><span>OM</span></div>
+            <h3>业务 Agent 可执行</h3>
+            <p>Agent「乐悠」不只回答问题，还能查询模型和数据、执行图片检测、导出 ONNX，以及在已配置环境中转换并测试昇腾 OM。</p>
+            <ul>
+              <li>工具调用过程与结果图实时回传</li>
+              <li>配置目录驱动，可继续扩展新工具与技能</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="workflow" class="section workflow" aria-labelledby="workflow-title">
+        <div class="section-heading section-heading--center section-reveal">
+          <p class="eyebrow"><span></span> One Continuous Workflow</p>
+          <h2 id="workflow-title">一次实验，从样本到交付不中断</h2>
+          <p>点击流程节点，查看每个阶段在平台中的具体操作与衔接方式。</p>
+        </div>
+
+        <div class="workflow-shell section-reveal">
+          <div class="workflow-tabs" role="tablist" aria-label="目标检测研发流程">
+            <button class="workflow-tab is-active" type="button" role="tab" aria-selected="true" data-stage="0"><b>01</b><span>准备数据</span></button>
+            <button class="workflow-tab" type="button" role="tab" aria-selected="false" data-stage="1"><b>02</b><span>配置训练</span></button>
+            <button class="workflow-tab" type="button" role="tab" aria-selected="false" data-stage="2"><b>03</b><span>实时监控</span></button>
+            <button class="workflow-tab" type="button" role="tab" aria-selected="false" data-stage="3"><b>04</b><span>复盘结果</span></button>
+            <button class="workflow-tab" type="button" role="tab" aria-selected="false" data-stage="4"><b>05</b><span>测试模型</span></button>
+            <button class="workflow-tab" type="button" role="tab" aria-selected="false" data-stage="5"><b>06</b><span>业务交付</span></button>
+          </div>
+
+          <div class="workflow-content">
+            <div class="workflow-copy">
+              <p class="stage-label" id="stage-label">数据标注 · 数据管理</p>
+              <h3 id="stage-title">从原始图片建立可训练数据集</h3>
+              <p id="stage-description">
+                在 Konva 画布中完成矩形框标注、类别维护、撤销重做与自动保存；导出 train / val、YOLO 标签和 data.yaml 后，
+                通过本地目录或 YAML 注册数据集并校验路径与类别。
+              </p>
+              <ul id="stage-points" class="check-list">
+                <li>支持长期项目与无需建档的快速标注</li>
+                <li>目录校验、类别推断与图片数量同步</li>
+                <li>源数据保留在服务器本地，无需上传整包</li>
+              </ul>
+              <div class="stage-meta">
+                <span id="stage-output-label">阶段产物</span>
+                <strong id="stage-output">可复用的 YOLO 标准数据集</strong>
+              </div>
+            </div>
+
+            <figure class="browser-frame browser-frame--workflow image-trigger" id="stage-frame" data-image="./assets/screenshots/数据标注2.jpg">
+              <div class="browser-bar">
+                <div class="browser-dots"><span></span><span></span><span></span></div>
+                <span class="browser-url" id="stage-url">Liu Studio / 数据标注</span>
+                <button type="button" class="expand-button" aria-label="放大当前流程截图">↗</button>
+              </div>
+              <img id="stage-image" src="./assets/screenshots/数据标注2.jpg" alt="Liu Studio 数据标注工作台" loading="lazy" decoding="async" />
+              <div class="carousel-controls workflow-image-controls">
+                <button type="button" id="stage-prev" class="carousel-prev" aria-label="上一张当前阶段截图">←</button>
+                <span class="carousel-status" aria-live="polite"><strong id="stage-caption">标注工作台</strong><small><b id="stage-current">1</b> / <b id="stage-total">3</b></small></span>
+                <button type="button" id="stage-next" class="carousel-next" aria-label="下一张当前阶段截图">→</button>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="agent-loop" aria-labelledby="agent-loop-title">
+        <div class="agent-loop-inner">
+          <div class="agent-loop-copy section-reveal">
+            <p class="eyebrow eyebrow--light"><span></span> LLM in the Loop</p>
+            <h2 id="agent-loop-title">让下一轮实验<br />自动从上一轮结果开始</h2>
+            <p>
+              打开 Agent 智能调参并设定最大轮数后，平台会串联训练、分析、调参和重新排队。
+              每轮保留独立编号、指标和结果，任务监控中可展开整组实验，直接比较每一轮表现。
             </p>
-            <div class="stage-tabs" aria-label="训练流程截图切换">
-              <button class="stage-tab is-active" type="button" data-stage="0">标注</button>
-              <button class="stage-tab" type="button" data-stage="1">训练</button>
-              <button class="stage-tab" type="button" data-stage="2">复盘</button>
-              <button class="stage-tab" type="button" data-stage="3">Agent</button>
+            <div class="loop-steps" aria-label="Agent 自动调参流程">
+              <div><span>01</span><strong>训练完成</strong><small>收集收敛指标与图表</small></div>
+              <div><span>02</span><strong>多模态分析</strong><small>LLM 诊断过拟合与收敛</small></div>
+              <div><span>03</span><strong>生成超参</strong><small>结构化输出并多层校验</small></div>
+              <div><span>04</span><strong>下一轮排队</strong><small>创建子任务并自动提交</small></div>
             </div>
           </div>
 
-          <figure class="device device--stage" aria-live="polite">
-            <div class="device-topbar">
-              <span></span>
-              <span></span>
-              <span></span>
+          <figure class="browser-frame browser-frame--dark image-trigger section-reveal" data-image="./assets/screenshots/新建训练2.jpg">
+            <div class="browser-bar">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <span class="browser-url">Agent 智能调参</span>
+              <button type="button" class="expand-button" aria-label="放大 Agent 智能调参截图">↗</button>
             </div>
-            <img
-              id="stage-image"
-              src="./assets/screenshots/annotation.png"
-              alt="数据标注界面"
-            />
+            <img src="./assets/screenshots/新建训练2.jpg" alt="新建训练页面中的高级超参数与 Agent 智能调参配置" loading="lazy" decoding="async" />
           </figure>
-        </div>
-
-        <div class="timeline" aria-label="平台训练流程">
-          <div class="timeline-item section-reveal">
-            <span>标注</span>
-            <strong>整理图片、类别和 YOLO 标签</strong>
-          </div>
-          <div class="timeline-item section-reveal">
-            <span>训练</span>
-            <strong>配置参数、排队调度和实时监控</strong>
-          </div>
-          <div class="timeline-item section-reveal">
-            <span>复盘</span>
-            <strong>查看指标、报告和权重文件</strong>
-          </div>
-          <div class="timeline-item section-reveal">
-            <span>Agent</span>
-            <strong>查模型、查数据、调用检测工具</strong>
-          </div>
         </div>
       </section>
 
-      <section id="modules" class="module-flow" aria-labelledby="modules-title">
+      <section id="intelligence" class="section intelligence" aria-labelledby="intelligence-title">
         <div class="section-heading section-reveal">
-          <p class="eyebrow">Sidebar Flow</p>
-          <h2 id="modules-title">按侧边栏顺序看完整平台</h2>
-        </div>
-
-        <div class="module-step module-step--hero section-reveal">
-          <div class="module-copy">
-            <span>01</span>
-            <h3>控制总台</h3>
-            <p>进入平台后的总览视图，集中查看任务数量、GPU 状态、最近训练和系统入口</p>
+          <div>
+            <p class="eyebrow"><span></span> Three Intelligence Modes</p>
+            <h2 id="intelligence-title">需要答案时能查<br />需要动作时能做</h2>
           </div>
-          <figure class="module-device">
-            <img src="./assets/screenshots/dashboard.png" alt="控制总台界面" />
-          </figure>
+          <p>
+            智能问答把模型对话、专业分析、知识库检索与平台工具放在同一会话中。
+            通过开关选择工作模式，历史上下文可持续追问。
+          </p>
         </div>
 
-        <div class="module-step module-step--offset section-reveal">
-          <div class="module-copy">
-            <span>02</span>
-            <h3>数据管理</h3>
-            <p>登记本地数据集路径，校验 train 和 val 目录，生成训练所需的 data.yaml</p>
+        <div class="ai-layout section-reveal">
+          <div class="ai-tabs" role="tablist" aria-label="智能问答模式">
+            <button class="ai-tab is-active" type="button" role="tab" aria-selected="true" data-ai="0">
+              <span>01</span>
+              <div><strong>普通 / 专家问答</strong><small>训练建议、指标解释、图片与文档理解</small></div>
+            </button>
+            <button class="ai-tab" type="button" role="tab" aria-selected="false" data-ai="1">
+              <span>02</span>
+              <div><strong>双知识库 RAG</strong><small>故障标准与平台使用说明自动分流检索</small></div>
+            </button>
+            <button class="ai-tab" type="button" role="tab" aria-selected="false" data-ai="2">
+              <span>03</span>
+              <div><strong>业务 Agent「乐悠」</strong><small>查询、检测、ONNX / OM 转换与测试</small></div>
+            </button>
           </div>
-          <figure class="module-device">
-            <img src="./assets/screenshots/datasets.png" alt="数据管理界面" />
-          </figure>
-        </div>
 
-        <div class="module-step module-step--reverse section-reveal">
-          <div class="module-copy">
-            <span>03</span>
-            <h3>新建训练</h3>
-            <p>选择数据集、模型权重、训练轮次和设备策略，把命令行参数整理成可检查的表单</p>
-          </div>
-          <figure class="module-device">
-            <img src="./assets/screenshots/train.png" alt="新建训练界面" />
-          </figure>
-        </div>
-
-        <div class="module-step module-step--offset section-reveal">
-          <div class="module-copy">
-            <span>04</span>
-            <h3>任务监控</h3>
-            <p>跟踪训练队列、运行状态和任务进度，及时看到排队、运行、完成和异常情况</p>
-          </div>
-          <figure class="module-device">
-            <img src="./assets/screenshots/tasks.png" alt="任务监控界面" />
-          </figure>
-        </div>
-
-        <div class="module-step module-step--wide section-reveal">
-          <div class="module-copy">
-            <span>05</span>
-            <h3>数据标注</h3>
-            <p>在浏览器里完成图片管理、矩形框标注、类别维护和 YOLO 数据集导出</p>
-          </div>
-          <figure class="module-device">
-            <img src="./assets/screenshots/annotation.png" alt="数据标注界面" />
-          </figure>
-        </div>
-
-        <div class="module-step module-step--reverse section-reveal">
-          <div class="module-copy">
-            <span>06</span>
-            <h3>模型测试</h3>
-            <p>选择训练权重或预置模型，对图片和目录执行批量推理，检查并修正检测结果</p>
-          </div>
-          <figure class="module-device">
-            <img src="./assets/screenshots/model-test.png" alt="模型测试界面" />
-          </figure>
-        </div>
-
-        <div class="module-pair">
-          <div class="module-step module-step--card section-reveal">
-            <div class="module-copy">
-              <span>07</span>
-              <h3>设备状态</h3>
-              <p>查看 GPU、CPU、显存和内存状态，让训练调度和资源占用更透明</p>
-            </div>
-            <figure class="module-device">
-              <img src="./assets/screenshots/device.png" alt="设备状态界面" />
+          <div class="ai-stage">
+            <figure class="browser-frame browser-frame--ai image-trigger" id="ai-frame" data-image="./assets/screenshots/智能问答-聊天模式.jpg">
+              <div class="browser-bar">
+                <div class="browser-dots"><span></span><span></span><span></span></div>
+                <span class="browser-url" id="ai-url">智能问答 / 专家模式</span>
+                <button type="button" class="expand-button" aria-label="放大智能问答截图">↗</button>
+              </div>
+              <img id="ai-image" src="./assets/screenshots/智能问答-聊天模式.jpg" alt="Liu Studio 智能问答聊天模式" loading="lazy" decoding="async" />
             </figure>
-          </div>
-
-          <div class="module-step module-step--card section-reveal">
-            <div class="module-copy">
-              <span>08</span>
-              <h3>终端连接</h3>
-              <p>管理员直接在页面中接入本机终端，用于部署、排查和运行环境检查</p>
+            <div class="ai-detail">
+              <span id="ai-badge">对话辅助</span>
+              <h3 id="ai-title">懂 YOLO，也懂你的实验上下文</h3>
+              <p id="ai-description">支持思考与专家模式，可上传图片及常见文档，适合解释训练参数、诊断指标、阅读材料和持续追问。</p>
+              <div id="ai-tags" class="tag-row"><span>流式响应</span><span>图片输入</span><span>Office / PDF 附件</span><span>会话历史</span></div>
             </div>
-            <figure class="module-device">
-              <img src="./assets/screenshots/terminal.png" alt="终端连接界面" />
-            </figure>
           </div>
         </div>
 
-        <div class="module-step module-step--agent section-reveal">
-          <div class="module-copy">
-            <span>09</span>
-            <h3>智能问答</h3>
-            <p>聊天模式用于解释和协助，Agent 模式可查询模型与数据并调用检测工具</p>
-            <div class="tool-strip" aria-label="Agent 工具调用示例">
-              <span>list_models</span>
-              <span>list_datasets</span>
-              <span>detect_image</span>
-            </div>
+        <div class="local-models section-reveal" aria-label="本地部署的模型服务">
+          <div class="local-models-heading">
+            <span>100% LOCAL MODEL SERVICES</span>
+            <h3>模型不出内网，检索链路也不出内网</h3>
+            <p>源码将生成、向量召回和结果重排拆成三项独立服务，全部通过本机或内网接口协同工作。</p>
           </div>
-          <figure class="module-device">
-            <img src="./assets/screenshots/ai-chat.png" alt="智能问答 Agent 模式界面" />
-          </figure>
+          <div class="local-model-item"><b>01 · LOCAL LLM</b><strong>Qwen3.6-27B</strong><small>默认模型服务名。通过 OpenAI-compatible 接口负责多轮对话、意图改写、训练报告、自动调参与 Agent 决策。</small><em>vLLM / LMDeploy 兼容</em></div>
+          <div class="local-model-item"><b>02 · DENSE RETRIEVAL</b><strong>BGE Embedding</strong><small>源码通过本地 <code>/embed</code> 服务生成查询和知识块向量，与 BM25、编码硬通道共同完成候选召回。</small><em>故障库 + 平台手册共用</em></div>
+          <div class="local-model-item"><b>03 · RELEVANCE RANKING</b><strong>bge-reranker-base</strong><small>源码明确使用本地重排服务，对混合检索候选按相关度重新排序，筛选最终注入上下文的知识片段。</small><em>本地 <code>/rerank</code> 服务</em></div>
+        </div>
+      </section>
+
+      <section id="modules" class="section modules" aria-labelledby="modules-title">
+        <div class="section-heading section-heading--center section-reveal">
+          <p class="eyebrow"><span></span> Complete Product Surface</p>
+          <h2 id="modules-title">侧边栏背后，是完整的研发工作面</h2>
+          <p>每个模块都围绕实际工作流设计。点击任意截图可查看完整界面。</p>
+        </div>
+
+        <div class="module-grid">
+          <article class="module-card module-card--wide section-reveal">
+            <div class="module-copy"><span>01 · OVERVIEW</span><h3>控制总台</h3><p>汇总顶层任务数量、训练/等待/完成状态、每张 GPU 的空闲或占用情况以及最近任务。Agent 多轮任务按组统计，快速判断当前资源与实验进度。</p><div class="tag-row"><em>任务统计</em><em>GPU 概览</em><em>最近任务</em></div></div>
+            <figure class="module-image image-trigger" data-image="./assets/screenshots/控制总台.jpg"><img src="./assets/screenshots/控制总台.jpg" alt="控制总台截图" loading="lazy" /><button type="button" class="module-expand" aria-label="放大控制总台截图">↗</button></figure>
+          </article>
+
+          <article class="module-card section-reveal">
+            <div class="module-copy"><span>02 · DATASETS</span><h3>数据管理</h3><p>通过服务器本地目录或 YAML 注册数据集，校验 train / val 路径、推断类别并生成训练所需配置；可随磁盘内容同步样本数量。</p><div class="tag-row"><em>两种导入模式</em><em>路径校验</em></div></div>
+            <figure class="module-image image-trigger" data-image="./assets/screenshots/数据管理.jpg"><img src="./assets/screenshots/数据管理.jpg" alt="数据管理截图" loading="lazy" /><button type="button" class="module-expand" aria-label="放大数据管理截图">↗</button></figure>
+          </article>
+
+          <article class="module-card section-reveal">
+            <div class="module-copy"><span>03 · TRAIN</span><h3>新建训练</h3><p>选择数据集、预训练权重、Conda 环境与 GPU，配置基础训练、优化器、损失权重和数据增强；可切换普通训练或 Agent 多轮调参。</p><div class="tag-row"><em>20+ 超参</em><em>多卡 DDP</em></div></div>
+            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/新建训练1.jpg" data-slides="./assets/screenshots/新建训练1.jpg|./assets/screenshots/新建训练2.jpg" data-alts="新建训练的基础配置与 GPU 选择截图|新建训练的高级参数与 Agent 智能调参截图" data-captions="基础配置与设备选择|高级参数与 Agent 调参">
+              <img src="./assets/screenshots/新建训练1.jpg" alt="新建训练的基础配置与 GPU 选择截图" loading="lazy" />
+              <button type="button" class="module-expand" aria-label="放大新建训练截图">↗</button>
+              <div class="carousel-controls"><button type="button" class="carousel-prev" aria-label="上一张新建训练截图">←</button><span class="carousel-status"><strong class="carousel-caption">基础配置与设备选择</strong><small><b class="carousel-current">1</b> / <b class="carousel-total">2</b></small></span><button type="button" class="carousel-next" aria-label="下一张新建训练截图">→</button></div>
+            </figure>
+          </article>
+
+          <article class="module-card module-card--wide module-card--reverse section-reveal">
+            <div class="module-copy"><span>04 · MONITOR</span><h3>任务监控与训练详情</h3><p>按状态筛选所有任务，支持取消、删除和进入详情；Agent 组可展开查看每一轮。详情页通过 WebSocket 实时展示 Loss、P / R / mAP 曲线、epoch 进度、日志与 Agent 事件。</p><div class="tag-row"><em>实时曲线</em><em>队列状态</em><em>日志回放</em><em>Agent 分组</em></div></div>
+            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/任务监控.jpg" data-slides="./assets/screenshots/任务监控.jpg|./assets/screenshots/任务详情.jpg" data-alts="任务监控列表与 Agent 多轮任务分组截图|训练任务详情与实时指标曲线截图" data-captions="任务列表与 Agent 分组|实时曲线、进度与日志">
+              <img src="./assets/screenshots/任务监控.jpg" alt="任务监控列表与 Agent 多轮任务分组截图" loading="lazy" />
+              <button type="button" class="module-expand" aria-label="放大任务监控截图">↗</button>
+              <div class="carousel-controls"><button type="button" class="carousel-prev" aria-label="上一张任务监控截图">←</button><span class="carousel-status"><strong class="carousel-caption">任务列表与 Agent 分组</strong><small><b class="carousel-current">1</b> / <b class="carousel-total">2</b></small></span><button type="button" class="carousel-next" aria-label="下一张任务监控截图">→</button></div>
+            </figure>
+          </article>
+
+          <article class="module-card section-reveal">
+            <div class="module-copy"><span>05 · RESULTS</span><h3>训练结果与 AI 分析</h3><p>集中查看最终指标、权重文件、混淆矩阵、PR / F1 曲线和训练事件；支持下载 best.pt、导出结构化训练报告，并流式生成多模态 AI 分析报告。</p><div class="tag-row"><em>结果归档</em><em>双报告 PDF</em></div></div>
+            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/训练结果1.jpg" data-slides="./assets/screenshots/训练结果1.jpg|./assets/screenshots/训练结果2.jpg|./assets/screenshots/AI分析.jpg" data-alts="训练结果指标、事件与模型文件截图|训练结果图表与可视化文件截图|训练结果页中的流式 AI 分析报告截图" data-captions="指标、事件与模型文件|训练图表与可视化结果|多模态 AI 分析报告">
+              <img src="./assets/screenshots/训练结果1.jpg" alt="训练结果指标、事件与模型文件截图" loading="lazy" />
+              <button type="button" class="module-expand" aria-label="放大训练结果截图">↗</button>
+              <div class="carousel-controls"><button type="button" class="carousel-prev" aria-label="上一张训练结果截图">←</button><span class="carousel-status"><strong class="carousel-caption">指标、事件与模型文件</strong><small><b class="carousel-current">1</b> / <b class="carousel-total">3</b></small></span><button type="button" class="carousel-next" aria-label="下一张训练结果截图">→</button></div>
+            </figure>
+          </article>
+
+          <article class="module-card section-reveal">
+            <div class="module-copy"><span>06 · ANNOTATION</span><h3>数据标注</h3><p>图片列表、Konva 标注画布、类别与框属性三栏协作；支持缩放平移、快捷键、撤销重做、延时自动保存，并导出标准 YOLO 训练集。</p><div class="tag-row"><em>VOC 标注</em><em>YOLO 导出</em></div></div>
+            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/数据标注1.jpg" data-slides="./assets/screenshots/数据标注1.jpg|./assets/screenshots/数据标注2.jpg" data-alts="数据标注项目管理与快速标注入口截图|数据标注工作台的图片、画布和类别面板截图" data-captions="项目管理与快速标注|标注工作台">
+              <img src="./assets/screenshots/数据标注1.jpg" alt="数据标注项目管理与快速标注入口截图" loading="lazy" />
+              <button type="button" class="module-expand" aria-label="放大数据标注截图">↗</button>
+              <div class="carousel-controls"><button type="button" class="carousel-prev" aria-label="上一张数据标注截图">←</button><span class="carousel-status"><strong class="carousel-caption">项目管理与快速标注</strong><small><b class="carousel-current">1</b> / <b class="carousel-total">2</b></small></span><button type="button" class="carousel-next" aria-label="下一张数据标注截图">→</button></div>
+            </figure>
+          </article>
+
+          <article class="module-card module-card--wide section-reveal">
+            <div class="module-copy"><span>07 · MODEL TEST</span><h3>模型测试</h3><p>从已训练权重、自定义权重或预置模型中选择测试模型，接入数据集、目录、上传文件或标注项目做批量推理；支持逐图纠正、背景标记与多格式结果导出。</p><div class="tag-row"><em>批量推理</em><em>人工纠正</em><em>YOLO / VOC / COCO / CSV</em></div></div>
+            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/模型测试1.jpg" data-slides="./assets/screenshots/模型测试1.jpg|./assets/screenshots/模型测试2.jpg" data-alts="模型测试的模型与数据源选择截图|模型测试推理结果与人工纠正截图" data-captions="模型与测试数据选择|推理结果与人工纠正">
+              <img src="./assets/screenshots/模型测试1.jpg" alt="模型测试的模型与数据源选择截图" loading="lazy" />
+              <button type="button" class="module-expand" aria-label="放大模型测试截图">↗</button>
+              <div class="carousel-controls"><button type="button" class="carousel-prev" aria-label="上一张模型测试截图">←</button><span class="carousel-status"><strong class="carousel-caption">模型与测试数据选择</strong><small><b class="carousel-current">1</b> / <b class="carousel-total">2</b></small></span><button type="button" class="carousel-next" aria-label="下一张模型测试截图">→</button></div>
+            </figure>
+          </article>
+
+          <article class="module-card section-reveal">
+            <div class="module-copy"><span>08 · RESOURCES</span><h3>设备状态</h3><p>约每两秒更新 CPU、内存、GPU 利用率、显存与温度，并保留简要趋势曲线；提交大任务前可先确认机器负载与可用设备。</p><div class="tag-row"><em>资源趋势</em><em>只读监控</em></div></div>
+            <figure class="module-image image-trigger" data-image="./assets/screenshots/设备状态.jpg"><img src="./assets/screenshots/设备状态.jpg" alt="设备状态截图" loading="lazy" /><button type="button" class="module-expand" aria-label="放大设备状态截图">↗</button></figure>
+          </article>
+
+          <article class="module-card section-reveal">
+            <div class="module-copy"><span>09 · TERMINAL</span><h3>终端连接</h3><p>管理员可在浏览器中建立本机 PTY 终端，使用多标签、清屏、复制、日志下载与全屏功能；还可维护保存在浏览器本地的常用命令脚本，并在已连接终端中一键执行。</p><div class="tag-row"><em>仅管理员</em><em>本机 Shell</em><em>自定义脚本</em></div></div>
+            <figure class="module-image image-trigger" data-image="./assets/screenshots/终端连接.jpg"><img src="./assets/screenshots/终端连接.jpg" alt="终端连接与自定义脚本截图" loading="lazy" /><button type="button" class="module-expand" aria-label="放大终端连接截图">↗</button></figure>
+          </article>
+
+          <article class="module-card module-card--wide module-card--ai section-reveal">
+            <div class="module-copy"><span>10 · AI WORKSPACE</span><h3>智能问答</h3><p>普通聊天、思考、专家和 Agent 模式共用会话空间。操作类问题检索平台手册，故障标准问题检索 TFDS 图文知识库；需要执行时由「乐悠」调用模型、数据、检测与转换工具。</p><div class="tag-row"><em>意图改写</em><em>双 RAG</em><em>图例展示</em><em>工具调用</em></div></div>
+            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/智能问答-聊天模式.jpg" data-slides="./assets/screenshots/智能问答-聊天模式.jpg|./assets/screenshots/智能问答-知识库问答1.jpg|./assets/screenshots/智能问答-知识库问答2.jpg|./assets/screenshots/智能问答-Agent模式1.jpg|./assets/screenshots/智能问答-Agent模式2.jpg" data-alts="智能问答普通聊天与专家模式截图|智能问答检索 TFDS 故障标准并展示参考图例截图|智能问答知识库连续追问与图例截图|业务 Agent 查询模型、数据并执行检测截图|业务 Agent 执行模型转换与测试工具截图" data-captions="普通聊天与专家模式|TFDS 知识库问答|知识库图例与连续追问|Agent 查询与检测|Agent 转换与测试">
+              <img src="./assets/screenshots/智能问答-聊天模式.jpg" alt="智能问答普通聊天与专家模式截图" loading="lazy" />
+              <button type="button" class="module-expand" aria-label="放大智能问答截图">↗</button>
+              <div class="carousel-controls"><button type="button" class="carousel-prev" aria-label="上一张智能问答截图">←</button><span class="carousel-status"><strong class="carousel-caption">普通聊天与专家模式</strong><small><b class="carousel-current">1</b> / <b class="carousel-total">5</b></small></span><button type="button" class="carousel-next" aria-label="下一张智能问答截图">→</button></div>
+            </figure>
+          </article>
+        </div>
+      </section>
+
+      <section id="architecture" class="section architecture" aria-labelledby="architecture-title">
+        <div class="section-heading section-heading--center section-reveal">
+          <p class="eyebrow"><span></span> Built for Local Infrastructure</p>
+          <h2 id="architecture-title">部署在自己的机器上<br />连接自己的数据与算力</h2>
+          <p>数据集、模型、训练结果与全部 AI 模型服务都保留在本地或内网环境，前后端通过实时通道连接任务与界面。</p>
+        </div>
+
+        <div class="architecture-stack section-reveal" aria-label="平台技术架构">
+          <div class="architecture-layer architecture-layer--front">
+            <span>交互层</span>
+            <strong>Vue 3 · Element Plus · ECharts · Konva · xterm.js</strong>
+            <small>控制台、表单、实时曲线、标注画布与浏览器终端</small>
+          </div>
+          <div class="architecture-connector"><i></i><span>REST · SSE · WebSocket</span><i></i></div>
+          <div class="architecture-layer">
+            <span>服务层</span>
+            <strong>FastAPI · SQLAlchemy · JWT · GPU Scheduler</strong>
+            <small>多用户鉴权、任务编排、日志解析、报告与结果管理</small>
+          </div>
+          <div class="architecture-connector"><i></i><span>OpenAI Tools · Hybrid Retrieval</span><i></i></div>
+          <div class="architecture-layer architecture-layer--intelligence">
+            <span>智能层</span>
+            <strong>Local LLM · Local Embedding · Local Reranker · BM25</strong>
+            <small>三类模型服务均本地部署，用于自动调参、多模态分析、意图改写、双知识库与业务 Agent</small>
+          </div>
+          <div class="architecture-connector"><i></i><span>Local Files · GPU · SSH</span><i></i></div>
+          <div class="architecture-layer architecture-layer--infra">
+            <span>基础设施</span>
+            <strong>Ultralytics YOLO11 · PyTorch · NVIDIA GPU · Ascend</strong>
+            <small>训练与推理、本地模型资产，以及可选的昇腾转换和测试环境</small>
+          </div>
+        </div>
+
+        <div class="security-notes section-reveal">
+          <article><span>01</span><h3>本地数据路径</h3><p>数据管理以服务器目录为主，训练无需把整包数据集上传到外部服务。</p></article>
+          <article><span>02</span><h3>多用户鉴权</h3><p>JWT 管理访问会话；首位注册用户成为管理员，终端能力仅向管理员开放。</p></article>
+          <article><span>03</span><h3>本地模型服务</h3><p>LLM、Embedding 与 Reranker 均通过本机或内网接口提供能力，数据和检索上下文无需发送到外部模型服务。</p></article>
         </div>
       </section>
 
       <section class="closing section-reveal" aria-labelledby="closing-title">
-        <p class="eyebrow">Ready for Demo</p>
-        <h2 id="closing-title">从控制总台到智能问答，侧边栏就是平台的使用路径</h2>
-        <p>
-          Liu的工作台把训练中的关键动作收拢在一套可演示、可追踪、可继续扩展的产品体验里
-        </p>
+        <div class="closing-orbit" aria-hidden="true"></div>
+        <p class="eyebrow eyebrow--light"><span></span> Liu Studio</p>
+        <h2 id="closing-title">让每一次训练都有过程<br />有结果，也有下一步</h2>
+        <p>从数据准备到模型交付，把目标检测研发中的重复动作交给平台，把判断留给人。</p>
+        <a class="button button--light" href="#top">回到顶部 <span>↑</span></a>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <a class="brand brand--footer" href="#top">
+        <img src="./assets/logo.jpg" alt="" width="32" height="32" />
+        <span>Liu Studio</span>
+      </a>
+      <p>YOLO 训练与智能辅助平台 · 本机 / 内网部署</p>
+      <a href="#top">Top ↑</a>
+    </footer>
+
+    <dialog class="image-dialog" aria-label="界面截图预览">
+      <button class="dialog-close" type="button" aria-label="关闭预览">×</button>
+      <img src="" alt="放大的平台界面截图" />
+    </dialog>
 
     <script src="./script.js"></script>
   </body>
