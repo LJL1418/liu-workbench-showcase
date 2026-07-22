@@ -193,13 +193,13 @@
               </div>
             </div>
 
-            <figure class="browser-frame browser-frame--workflow image-trigger" id="stage-frame" data-image="./assets/screenshots/数据标注2.jpg">
+          <figure class="browser-frame browser-frame--workflow image-trigger" id="stage-frame" data-image="./assets/screenshots/annotation-workspace.jpg">
               <div class="browser-bar">
                 <div class="browser-dots"><span></span><span></span><span></span></div>
                 <span class="browser-url" id="stage-url">Liu Studio / 数据标注</span>
                 <button type="button" class="expand-button" aria-label="放大当前流程截图">↗</button>
               </div>
-              <img id="stage-image" src="./assets/screenshots/数据标注2.jpg" alt="Liu Studio 数据标注工作台" loading="eager" decoding="async" />
+              <img id="stage-image" src="./assets/screenshots/annotation-workspace.jpg" alt="Liu Studio 数据标注工作台" loading="eager" decoding="async" />
               <div class="carousel-controls workflow-image-controls">
                 <button type="button" id="stage-prev" class="carousel-prev" aria-label="上一张当前阶段截图">←</button>
                 <span class="carousel-status" aria-live="polite"><strong id="stage-caption">标注工作台</strong><small><b id="stage-current">1</b> / <b id="stage-total">3</b></small></span>
@@ -227,13 +227,13 @@
             </div>
           </div>
 
-          <figure class="browser-frame browser-frame--dark image-trigger section-reveal" data-image="./assets/screenshots/新建训练2.jpg">
+          <figure class="browser-frame browser-frame--dark image-trigger section-reveal" data-image="./assets/screenshots/train-agent.jpg">
             <div class="browser-bar">
               <div class="browser-dots"><span></span><span></span><span></span></div>
               <span class="browser-url">Agent 智能调参</span>
               <button type="button" class="expand-button" aria-label="放大 Agent 智能调参截图">↗</button>
             </div>
-            <img src="./assets/screenshots/新建训练2.jpg" alt="新建训练页面中的高级超参数与 Agent 智能调参配置" loading="eager" decoding="async" />
+            <img src="./assets/screenshots/train-agent.jpg" alt="新建训练页面中的高级超参数与 Agent 智能调参配置" loading="eager" decoding="async" />
           </figure>
         </div>
       </section>
@@ -267,13 +267,13 @@
           </div>
 
           <div class="ai-stage">
-            <figure class="browser-frame browser-frame--ai image-trigger" id="ai-frame" data-image="./assets/screenshots/智能问答-聊天模式.jpg">
+          <figure class="browser-frame browser-frame--ai image-trigger" id="ai-frame" data-image="./assets/screenshots/ai-chat.jpg">
               <div class="browser-bar">
                 <div class="browser-dots"><span></span><span></span><span></span></div>
                 <span class="browser-url" id="ai-url">智能问答 / 专家模式</span>
                 <button type="button" class="expand-button" aria-label="放大智能问答截图">↗</button>
               </div>
-              <img id="ai-image" src="./assets/screenshots/智能问答-聊天模式.jpg" alt="Liu Studio 智能问答聊天模式" loading="eager" decoding="async" />
+            <img id="ai-image" src="./assets/screenshots/ai-chat.jpg" alt="Liu Studio 智能问答聊天模式" loading="eager" decoding="async" />
             </figure>
             <div class="ai-detail">
               <span id="ai-badge">对话辅助</span>
@@ -306,18 +306,18 @@
         <div class="module-grid">
           <article class="module-card module-card--wide section-reveal">
             <div class="module-copy"><span>01 · OVERVIEW</span><h3>控制总台</h3><p>汇总顶层任务数量、训练/等待/完成状态、每张 GPU 的空闲或占用情况以及最近任务。Agent 多轮任务按组统计，快速判断当前资源与实验进度。</p><div class="tag-row"><em>任务统计</em><em>GPU 概览</em><em>最近任务</em></div></div>
-            <figure class="module-image image-trigger" data-image="./assets/screenshots/控制总台.jpg"><img src="./assets/screenshots/控制总台.jpg" alt="控制总台截图" loading="eager" /><button type="button" class="module-expand" aria-label="放大控制总台截图">↗</button></figure>
+            <figure class="module-image image-trigger" data-image="./assets/screenshots/dashboard.jpg"><img src="./assets/screenshots/dashboard.jpg" alt="控制总台截图" loading="eager" /><button type="button" class="module-expand" aria-label="放大控制总台截图">↗</button></figure>
           </article>
 
           <article class="module-card section-reveal">
             <div class="module-copy"><span>02 · DATASETS</span><h3>数据管理</h3><p>通过服务器本地目录或 YAML 注册数据集，校验 train / val 路径、推断类别并生成训练所需配置；可随磁盘内容同步样本数量。</p><div class="tag-row"><em>两种导入模式</em><em>路径校验</em></div></div>
-            <figure class="module-image image-trigger" data-image="./assets/screenshots/数据管理.jpg"><img src="./assets/screenshots/数据管理.jpg" alt="数据管理截图" loading="eager" /><button type="button" class="module-expand" aria-label="放大数据管理截图">↗</button></figure>
+            <figure class="module-image image-trigger" data-image="./assets/screenshots/datasets.jpg"><img src="./assets/screenshots/datasets.jpg" alt="数据管理截图" loading="eager" /><button type="button" class="module-expand" aria-label="放大数据管理截图">↗</button></figure>
           </article>
 
           <article class="module-card section-reveal">
             <div class="module-copy"><span>03 · TRAIN</span><h3>新建训练</h3><p>选择数据集、预训练权重、Conda 环境与 GPU，配置基础训练、优化器、损失权重和数据增强；可切换普通训练或 Agent 多轮调参。</p><div class="tag-row"><em>20+ 超参</em><em>多卡 DDP</em></div></div>
-            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/新建训练1.jpg" data-slides="./assets/screenshots/新建训练1.jpg|./assets/screenshots/新建训练2.jpg" data-alts="新建训练的基础配置与 GPU 选择截图|新建训练的高级参数与 Agent 智能调参截图" data-captions="基础配置与设备选择|高级参数与 Agent 调参">
-              <img src="./assets/screenshots/新建训练1.jpg" alt="新建训练的基础配置与 GPU 选择截图" loading="eager" />
+            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/train-config.jpg" data-slides="./assets/screenshots/train-config.jpg|./assets/screenshots/train-agent.jpg" data-alts="新建训练的基础配置与 GPU 选择截图|新建训练的高级参数与 Agent 智能调参截图" data-captions="基础配置与设备选择|高级参数与 Agent 调参">
+              <img src="./assets/screenshots/train-config.jpg" alt="新建训练的基础配置与 GPU 选择截图" loading="eager" />
               <button type="button" class="module-expand" aria-label="放大新建训练截图">↗</button>
               <div class="carousel-controls"><button type="button" class="carousel-prev" aria-label="上一张新建训练截图">←</button><span class="carousel-status"><strong class="carousel-caption">基础配置与设备选择</strong><small><b class="carousel-current">1</b> / <b class="carousel-total">2</b></small></span><button type="button" class="carousel-next" aria-label="下一张新建训练截图">→</button></div>
             </figure>
@@ -325,8 +325,8 @@
 
           <article class="module-card module-card--wide module-card--reverse section-reveal">
             <div class="module-copy"><span>04 · MONITOR</span><h3>任务监控与训练详情</h3><p>按状态筛选所有任务，支持取消、删除和进入详情；Agent 组可展开查看每一轮。详情页通过 WebSocket 实时展示 Loss、P / R / mAP 曲线、epoch 进度、日志与 Agent 事件。</p><div class="tag-row"><em>实时曲线</em><em>队列状态</em><em>日志回放</em><em>Agent 分组</em></div></div>
-            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/任务监控.jpg" data-slides="./assets/screenshots/任务监控.jpg|./assets/screenshots/任务详情.jpg" data-alts="任务监控列表与 Agent 多轮任务分组截图|训练任务详情与实时指标曲线截图" data-captions="任务列表与 Agent 分组|实时曲线、进度与日志">
-              <img src="./assets/screenshots/任务监控.jpg" alt="任务监控列表与 Agent 多轮任务分组截图" loading="eager" />
+            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/task-monitor.jpg" data-slides="./assets/screenshots/task-monitor.jpg|./assets/screenshots/task-detail.jpg" data-alts="任务监控列表与 Agent 多轮任务分组截图|训练任务详情与实时指标曲线截图" data-captions="任务列表与 Agent 分组|实时曲线、进度与日志">
+              <img src="./assets/screenshots/task-monitor.jpg" alt="任务监控列表与 Agent 多轮任务分组截图" loading="eager" />
               <button type="button" class="module-expand" aria-label="放大任务监控截图">↗</button>
               <div class="carousel-controls"><button type="button" class="carousel-prev" aria-label="上一张任务监控截图">←</button><span class="carousel-status"><strong class="carousel-caption">任务列表与 Agent 分组</strong><small><b class="carousel-current">1</b> / <b class="carousel-total">2</b></small></span><button type="button" class="carousel-next" aria-label="下一张任务监控截图">→</button></div>
             </figure>
@@ -334,8 +334,8 @@
 
           <article class="module-card section-reveal">
             <div class="module-copy"><span>05 · RESULTS</span><h3>训练结果与 AI 分析</h3><p>集中查看最终指标、权重文件、混淆矩阵、PR / F1 曲线和训练事件；支持下载 best.pt、导出结构化训练报告，并流式生成多模态 AI 分析报告。</p><div class="tag-row"><em>结果归档</em><em>双报告 PDF</em></div></div>
-            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/训练结果1.jpg" data-slides="./assets/screenshots/训练结果1.jpg|./assets/screenshots/训练结果2.jpg|./assets/screenshots/AI分析.jpg" data-alts="训练结果指标、事件与模型文件截图|训练结果图表与可视化文件截图|训练结果页中的流式 AI 分析报告截图" data-captions="指标、事件与模型文件|训练图表与可视化结果|多模态 AI 分析报告">
-              <img src="./assets/screenshots/训练结果1.jpg" alt="训练结果指标、事件与模型文件截图" loading="eager" />
+            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/results-metrics.jpg" data-slides="./assets/screenshots/results-metrics.jpg|./assets/screenshots/results-charts.jpg|./assets/screenshots/ai-analysis.jpg" data-alts="训练结果指标、事件与模型文件截图|训练结果图表与可视化文件截图|训练结果页中的流式 AI 分析报告截图" data-captions="指标、事件与模型文件|训练图表与可视化结果|多模态 AI 分析报告">
+              <img src="./assets/screenshots/results-metrics.jpg" alt="训练结果指标、事件与模型文件截图" loading="eager" />
               <button type="button" class="module-expand" aria-label="放大训练结果截图">↗</button>
               <div class="carousel-controls"><button type="button" class="carousel-prev" aria-label="上一张训练结果截图">←</button><span class="carousel-status"><strong class="carousel-caption">指标、事件与模型文件</strong><small><b class="carousel-current">1</b> / <b class="carousel-total">3</b></small></span><button type="button" class="carousel-next" aria-label="下一张训练结果截图">→</button></div>
             </figure>
@@ -343,8 +343,8 @@
 
           <article class="module-card section-reveal">
             <div class="module-copy"><span>06 · ANNOTATION</span><h3>数据标注</h3><p>图片列表、Konva 标注画布、类别与框属性三栏协作；支持缩放平移、快捷键、撤销重做、延时自动保存，并导出标准 YOLO 训练集。</p><div class="tag-row"><em>VOC 标注</em><em>YOLO 导出</em></div></div>
-            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/数据标注1.jpg" data-slides="./assets/screenshots/数据标注1.jpg|./assets/screenshots/数据标注2.jpg" data-alts="数据标注项目管理与快速标注入口截图|数据标注工作台的图片、画布和类别面板截图" data-captions="项目管理与快速标注|标注工作台">
-              <img src="./assets/screenshots/数据标注1.jpg" alt="数据标注项目管理与快速标注入口截图" loading="eager" />
+            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/annotation-projects.jpg" data-slides="./assets/screenshots/annotation-projects.jpg|./assets/screenshots/annotation-workspace.jpg" data-alts="数据标注项目管理与快速标注入口截图|数据标注工作台的图片、画布和类别面板截图" data-captions="项目管理与快速标注|标注工作台">
+              <img src="./assets/screenshots/annotation-projects.jpg" alt="数据标注项目管理与快速标注入口截图" loading="eager" />
               <button type="button" class="module-expand" aria-label="放大数据标注截图">↗</button>
               <div class="carousel-controls"><button type="button" class="carousel-prev" aria-label="上一张数据标注截图">←</button><span class="carousel-status"><strong class="carousel-caption">项目管理与快速标注</strong><small><b class="carousel-current">1</b> / <b class="carousel-total">2</b></small></span><button type="button" class="carousel-next" aria-label="下一张数据标注截图">→</button></div>
             </figure>
@@ -352,8 +352,8 @@
 
           <article class="module-card module-card--wide section-reveal">
             <div class="module-copy"><span>07 · MODEL TEST</span><h3>模型测试</h3><p>从已训练权重、自定义权重或预置模型中选择测试模型，接入数据集、目录、上传文件或标注项目做批量推理；支持逐图纠正、背景标记与多格式结果导出。</p><div class="tag-row"><em>批量推理</em><em>人工纠正</em><em>YOLO / VOC / COCO / CSV</em></div></div>
-            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/模型测试1.jpg" data-slides="./assets/screenshots/模型测试1.jpg|./assets/screenshots/模型测试2.jpg" data-alts="模型测试的模型与数据源选择截图|模型测试推理结果与人工纠正截图" data-captions="模型与测试数据选择|推理结果与人工纠正">
-              <img src="./assets/screenshots/模型测试1.jpg" alt="模型测试的模型与数据源选择截图" loading="eager" />
+            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/model-test-config.jpg" data-slides="./assets/screenshots/model-test-config.jpg|./assets/screenshots/model-test-results.jpg" data-alts="模型测试的模型与数据源选择截图|模型测试推理结果与人工纠正截图" data-captions="模型与测试数据选择|推理结果与人工纠正">
+              <img src="./assets/screenshots/model-test-config.jpg" alt="模型测试的模型与数据源选择截图" loading="eager" />
               <button type="button" class="module-expand" aria-label="放大模型测试截图">↗</button>
               <div class="carousel-controls"><button type="button" class="carousel-prev" aria-label="上一张模型测试截图">←</button><span class="carousel-status"><strong class="carousel-caption">模型与测试数据选择</strong><small><b class="carousel-current">1</b> / <b class="carousel-total">2</b></small></span><button type="button" class="carousel-next" aria-label="下一张模型测试截图">→</button></div>
             </figure>
@@ -361,18 +361,18 @@
 
           <article class="module-card section-reveal">
             <div class="module-copy"><span>08 · RESOURCES</span><h3>设备状态</h3><p>约每两秒更新 CPU、内存、GPU 利用率、显存与温度，并保留简要趋势曲线；提交大任务前可先确认机器负载与可用设备。</p><div class="tag-row"><em>资源趋势</em><em>只读监控</em></div></div>
-            <figure class="module-image image-trigger" data-image="./assets/screenshots/设备状态.jpg"><img src="./assets/screenshots/设备状态.jpg" alt="设备状态截图" loading="eager" /><button type="button" class="module-expand" aria-label="放大设备状态截图">↗</button></figure>
+            <figure class="module-image image-trigger" data-image="./assets/screenshots/device-status.jpg"><img src="./assets/screenshots/device-status.jpg" alt="设备状态截图" loading="eager" /><button type="button" class="module-expand" aria-label="放大设备状态截图">↗</button></figure>
           </article>
 
           <article class="module-card section-reveal">
             <div class="module-copy"><span>09 · TERMINAL</span><h3>终端连接</h3><p>管理员可在浏览器中建立本机 PTY 终端，使用多标签、清屏、复制、日志下载与全屏功能；还可维护保存在浏览器本地的常用命令脚本，并在已连接终端中一键执行。</p><div class="tag-row"><em>仅管理员</em><em>本机 Shell</em><em>自定义脚本</em></div></div>
-            <figure class="module-image image-trigger" data-image="./assets/screenshots/终端连接.jpg"><img src="./assets/screenshots/终端连接.jpg" alt="终端连接与自定义脚本截图" loading="eager" /><button type="button" class="module-expand" aria-label="放大终端连接截图">↗</button></figure>
+            <figure class="module-image image-trigger" data-image="./assets/screenshots/terminal.jpg"><img src="./assets/screenshots/terminal.jpg" alt="终端连接与自定义脚本截图" loading="eager" /><button type="button" class="module-expand" aria-label="放大终端连接截图">↗</button></figure>
           </article>
 
           <article class="module-card module-card--wide module-card--ai section-reveal">
             <div class="module-copy"><span>10 · AI WORKSPACE</span><h3>智能问答</h3><p>普通聊天、思考、专家和 Agent 模式共用会话空间。操作类问题检索平台手册，故障标准问题检索 TFDS 图文知识库；需要执行时由「乐悠」调用模型、数据、检测与转换工具。</p><div class="tag-row"><em>意图改写</em><em>双 RAG</em><em>图例展示</em><em>工具调用</em></div></div>
-            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/智能问答-聊天模式.jpg" data-slides="./assets/screenshots/智能问答-聊天模式.jpg|./assets/screenshots/智能问答-知识库问答1.jpg|./assets/screenshots/智能问答-知识库问答2.jpg|./assets/screenshots/智能问答-Agent模式1.jpg|./assets/screenshots/智能问答-Agent模式2.jpg" data-alts="智能问答普通聊天与专家模式截图|智能问答检索 TFDS 故障标准并展示参考图例截图|智能问答知识库连续追问与图例截图|业务 Agent 查询模型、数据并执行检测截图|业务 Agent 执行模型转换与测试工具截图" data-captions="普通聊天与专家模式|TFDS 知识库问答|知识库图例与连续追问|Agent 查询与检测|Agent 转换与测试">
-              <img src="./assets/screenshots/智能问答-聊天模式.jpg" alt="智能问答普通聊天与专家模式截图" loading="eager" />
+            <figure class="module-image image-trigger module-carousel" data-image="./assets/screenshots/ai-chat.jpg" data-slides="./assets/screenshots/ai-chat.jpg|./assets/screenshots/ai-knowledge-1.jpg|./assets/screenshots/ai-knowledge-2.jpg|./assets/screenshots/ai-agent-1.jpg|./assets/screenshots/ai-agent-2.jpg" data-alts="智能问答普通聊天与专家模式截图|智能问答检索 TFDS 故障标准并展示参考图例截图|智能问答知识库连续追问与图例截图|业务 Agent 查询模型、数据并执行检测截图|业务 Agent 转换与测试工具截图" data-captions="普通聊天与专家模式|TFDS 知识库问答|知识库图例与连续追问|Agent 查询与检测|Agent 转换与测试">
+              <img src="./assets/screenshots/ai-chat.jpg" alt="智能问答普通聊天与专家模式截图" loading="eager" />
               <button type="button" class="module-expand" aria-label="放大智能问答截图">↗</button>
               <div class="carousel-controls"><button type="button" class="carousel-prev" aria-label="上一张智能问答截图">←</button><span class="carousel-status"><strong class="carousel-caption">普通聊天与专家模式</strong><small><b class="carousel-current">1</b> / <b class="carousel-total">5</b></small></span><button type="button" class="carousel-next" aria-label="下一张智能问答截图">→</button></div>
             </figure>
