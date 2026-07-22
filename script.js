@@ -146,6 +146,42 @@ const stageCurrent = document.querySelector('#stage-current')
 const stageTotal = document.querySelector('#stage-total')
 const workflowShell = document.querySelector('.workflow-shell')
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const preloadedScreenshots = new Map()
+
+function preloadScreenshot(source) {
+  if (!source || preloadedScreenshots.has(source)) return
+  const preloader = new Image()
+  preloader.decoding = 'async'
+  preloader.src = source
+  preloadedScreenshots.set(source, preloader)
+}
+
+function preloadScreenshots(sources) {
+  sources.forEach(preloadScreenshot)
+}
+
+function preloadWhenNearby(element, sources) {
+  const preload = () => preloadScreenshots(sources)
+  if (!element || !('IntersectionObserver' in window)) {
+    preload()
+    return
+  }
+
+  const observer = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return
+    preload()
+    observer.disconnect()
+  }, { rootMargin: '500px 0px' })
+  observer.observe(element)
+}
+
+function finishImageTransition(element, animate) {
+  if (!animate) return
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => element.classList.remove('is-switching'))
+  })
+}
+
 const WORKFLOW_STAGE_DELAY = 7000
 const WORKFLOW_SLIDE_DELAY = 4500
 let activeWorkflowStage = 0
@@ -198,19 +234,15 @@ function renderWorkflowSlide(nextIndex, animate = true) {
   const total = stage.images.length
   activeWorkflowSlide = (nextIndex + total) % total
   if (animate) stageFrame.classList.add('is-switching')
-
-  const applySlide = () => {
-    stageImage.src = stage.images[activeWorkflowSlide]
-    stageImage.alt = stage.alts[activeWorkflowSlide]
-    stageFrame.dataset.image = stage.images[activeWorkflowSlide]
-    if (stageCaption) stageCaption.textContent = stage.captions[activeWorkflowSlide]
-    if (stageCurrent) stageCurrent.textContent = String(activeWorkflowSlide + 1)
-    if (stageTotal) stageTotal.textContent = String(total)
-    stageFrame.classList.remove('is-switching')
-  }
-
-  if (animate) window.setTimeout(applySlide, 120)
-  else applySlide()
+  const source = stage.images[activeWorkflowSlide]
+  stageImage.src = source
+  stageImage.alt = stage.alts[activeWorkflowSlide]
+  stageFrame.dataset.image = source
+  if (stageCaption) stageCaption.textContent = stage.captions[activeWorkflowSlide]
+  if (stageCurrent) stageCurrent.textContent = String(activeWorkflowSlide + 1)
+  if (stageTotal) stageTotal.textContent = String(total)
+  preloadScreenshot(stage.images[(activeWorkflowSlide + 1) % total])
+  finishImageTransition(stageFrame, animate)
 }
 
 function setWorkflowStage(index) {
@@ -227,23 +259,23 @@ function setWorkflowStage(index) {
   })
 
   stageFrame.classList.add('is-switching')
-  window.setTimeout(() => {
-    activeWorkflowStage = index
-    activeWorkflowSlide = 0
-    stageLabel.textContent = stage.label
-    stageTitle.textContent = stage.title
-    stageDescription.textContent = stage.description
-    stagePoints.replaceChildren(...stage.points.map((point) => {
-      const item = document.createElement('li')
-      item.textContent = point
-      return item
-    }))
-    stageOutput.textContent = stage.output
-    stageUrl.textContent = stage.url
-    renderWorkflowSlide(0, false)
-    scheduleWorkflowStage()
-    scheduleWorkflowSlide()
-  }, 150)
+  activeWorkflowStage = index
+  activeWorkflowSlide = 0
+  stageLabel.textContent = stage.label
+  stageTitle.textContent = stage.title
+  stageDescription.textContent = stage.description
+  stagePoints.replaceChildren(...stage.points.map((point) => {
+    const item = document.createElement('li')
+    item.textContent = point
+    return item
+  }))
+  stageOutput.textContent = stage.output
+  stageUrl.textContent = stage.url
+  preloadScreenshots(stage.images)
+  renderWorkflowSlide(0, false)
+  finishImageTransition(stageFrame, true)
+  scheduleWorkflowStage()
+  scheduleWorkflowSlide()
 }
 
 stagePrevious?.addEventListener('click', (event) => {
@@ -305,6 +337,8 @@ if (workflowShell && 'IntersectionObserver' in window) {
   refreshWorkflowAutoplay()
 }
 
+preloadWhenNearby(workflowShell, workflowStages.flatMap((stage) => stage.images))
+
 document.addEventListener('visibilitychange', refreshWorkflowAutoplay)
 
 const aiTabs = [...document.querySelectorAll('.ai-tab')]
@@ -350,24 +384,25 @@ function setAiMode(index) {
   })
 
   aiFrame.classList.add('is-switching')
-  window.setTimeout(() => {
-    activeAiMode = index
-    aiBadge.textContent = mode.badge
-    aiTitle.textContent = mode.title
-    aiDescription.textContent = mode.description
-    aiTags.replaceChildren(...mode.tags.map((tag) => {
-      const item = document.createElement('span')
-      item.textContent = tag
-      return item
-    }))
-    aiImage.src = mode.image
-    aiImage.alt = mode.alt
-    aiUrl.textContent = mode.url
-    aiFrame.dataset.image = mode.image
-    aiFrame.classList.remove('is-switching')
-    scheduleAiAutoplay()
-  }, 150)
+  activeAiMode = index
+  aiBadge.textContent = mode.badge
+  aiTitle.textContent = mode.title
+  aiDescription.textContent = mode.description
+  aiTags.replaceChildren(...mode.tags.map((tag) => {
+    const item = document.createElement('span')
+    item.textContent = tag
+    return item
+  }))
+  aiImage.src = mode.image
+  aiImage.alt = mode.alt
+  aiUrl.textContent = mode.url
+  aiFrame.dataset.image = mode.image
+  preloadScreenshots(aiModes.map((item) => item.image))
+  finishImageTransition(aiFrame, true)
+  scheduleAiAutoplay()
 }
+
+preloadWhenNearby(aiLayout, aiModes.map((mode) => mode.image))
 
 aiTabs.forEach((tab, index) => {
   tab.addEventListener('click', () => setAiMode(index))
@@ -470,18 +505,19 @@ document.querySelectorAll('.module-carousel').forEach((carousel) => {
   if (!image || slides.length < 2) return
   if (totalLabel) totalLabel.textContent = String(slides.length)
   status?.setAttribute('aria-live', 'polite')
+  preloadWhenNearby(carousel, slides)
 
   function showSlide(nextIndex) {
     activeIndex = (nextIndex + slides.length) % slides.length
     carousel.classList.add('is-switching')
-    window.setTimeout(() => {
-      image.src = slides[activeIndex]
-      image.alt = alts[activeIndex] || captions[activeIndex] || '平台功能截图'
-      carousel.dataset.image = slides[activeIndex]
-      if (currentLabel) currentLabel.textContent = String(activeIndex + 1)
-      if (captionLabel) captionLabel.textContent = captions[activeIndex] || `第 ${activeIndex + 1} 张截图`
-      carousel.classList.remove('is-switching')
-    }, 120)
+    const source = slides[activeIndex]
+    image.src = source
+    image.alt = alts[activeIndex] || captions[activeIndex] || '平台功能截图'
+    carousel.dataset.image = source
+    if (currentLabel) currentLabel.textContent = String(activeIndex + 1)
+    if (captionLabel) captionLabel.textContent = captions[activeIndex] || `第 ${activeIndex + 1} 张截图`
+    preloadScreenshot(slides[(activeIndex + 1) % slides.length])
+    finishImageTransition(carousel, true)
   }
 
   function stopAutoplay() {
