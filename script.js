@@ -146,14 +146,14 @@ const stageCurrent = document.querySelector('#stage-current')
 const stageTotal = document.querySelector('#stage-total')
 const workflowShell = document.querySelector('.workflow-shell')
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-const preloadedScreenshots = new Map()
+const preloadedScreenshots = new Set()
 
 function preloadScreenshot(source) {
   if (!source || preloadedScreenshots.has(source)) return
   const preloader = new Image()
   preloader.decoding = 'async'
+  preloadedScreenshots.add(source)
   preloader.src = source
-  preloadedScreenshots.set(source, preloader)
 }
 
 function preloadScreenshots(sources) {
@@ -271,7 +271,6 @@ function setWorkflowStage(index) {
   }))
   stageOutput.textContent = stage.output
   stageUrl.textContent = stage.url
-  preloadScreenshots(stage.images)
   renderWorkflowSlide(0, false)
   finishImageTransition(stageFrame, true)
   scheduleWorkflowStage()
@@ -337,7 +336,7 @@ if (workflowShell && 'IntersectionObserver' in window) {
   refreshWorkflowAutoplay()
 }
 
-preloadWhenNearby(workflowShell, workflowStages.flatMap((stage) => stage.images))
+preloadWhenNearby(workflowShell, workflowStages[0]?.images.slice(1, 2) || [])
 
 document.addEventListener('visibilitychange', refreshWorkflowAutoplay)
 
@@ -397,12 +396,12 @@ function setAiMode(index) {
   aiImage.alt = mode.alt
   aiUrl.textContent = mode.url
   aiFrame.dataset.image = mode.image
-  preloadScreenshots(aiModes.map((item) => item.image))
+  preloadScreenshot(aiModes[(activeAiMode + 1) % aiModes.length]?.image)
   finishImageTransition(aiFrame, true)
   scheduleAiAutoplay()
 }
 
-preloadWhenNearby(aiLayout, aiModes.map((mode) => mode.image))
+preloadWhenNearby(aiLayout, aiModes.slice(1, 2).map((mode) => mode.image))
 
 aiTabs.forEach((tab, index) => {
   tab.addEventListener('click', () => setAiMode(index))
@@ -505,7 +504,7 @@ document.querySelectorAll('.module-carousel').forEach((carousel) => {
   if (!image || slides.length < 2) return
   if (totalLabel) totalLabel.textContent = String(slides.length)
   status?.setAttribute('aria-live', 'polite')
-  preloadWhenNearby(carousel, slides)
+  preloadWhenNearby(carousel, slides.slice(1, 2))
 
   function showSlide(nextIndex) {
     activeIndex = (nextIndex + slides.length) % slides.length
