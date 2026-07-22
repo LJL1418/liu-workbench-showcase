@@ -318,9 +318,11 @@ ul {
 .hero-facts div {
   display: grid;
   gap: 1px;
+  justify-items: center;
   min-width: 160px;
   padding: 0 22px;
   border-right: 1px solid rgba(22, 23, 27, 0.1);
+  text-align: center;
 }
 
 .hero-facts div:last-child {
@@ -1824,6 +1826,35 @@ ul {
 
   .hero-facts span {
     font-size: 10px;
+  }
+
+  .hero-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    max-width: 480px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .hero-facts div {
+    width: 100%;
+    min-height: 88px;
+    padding: 10px 8px;
+    border-right: 1px solid rgba(22, 23, 27, 0.1);
+    border-bottom: 1px solid rgba(22, 23, 27, 0.1);
+    place-content: center;
+  }
+
+  .hero-facts div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .hero-facts div:nth-child(n + 3) {
+    border-bottom: 0;
+  }
+
+  .hero-facts div:last-child {
+    border-right: 0;
   }
 
   .browser-bar {
