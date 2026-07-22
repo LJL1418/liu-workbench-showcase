@@ -147,13 +147,29 @@ const stageTotal = document.querySelector('#stage-total')
 const workflowShell = document.querySelector('.workflow-shell')
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const preloadedScreenshots = new Set()
+const mobileScreenshotQuery = window.matchMedia('(max-width: 767px)')
+
+function getMobileScreenshotSource(source) {
+  return source?.replace('/screenshots/', '/screenshots/mobile/') || source
+}
+
+function getScreenshotSource(source) {
+  return mobileScreenshotQuery.matches ? getMobileScreenshotSource(source) : source
+}
+
+function setScreenshotSource(image, source) {
+  if (!image || !source) return
+  const mobileSource = image.closest('picture')?.querySelector('source[media="(max-width: 767px)"]')
+  if (mobileSource) mobileSource.srcset = getMobileScreenshotSource(source)
+  image.src = source
+}
 
 function preloadScreenshot(source) {
   if (!source || preloadedScreenshots.has(source)) return
   const preloader = new Image()
   preloader.decoding = 'async'
   preloadedScreenshots.add(source)
-  preloader.src = source
+  preloader.src = getScreenshotSource(source)
 }
 
 function preloadScreenshots(sources) {
@@ -235,7 +251,7 @@ function renderWorkflowSlide(nextIndex, animate = true) {
   activeWorkflowSlide = (nextIndex + total) % total
   if (animate) stageFrame.classList.add('is-switching')
   const source = stage.images[activeWorkflowSlide]
-  stageImage.src = source
+  setScreenshotSource(stageImage, source)
   stageImage.alt = stage.alts[activeWorkflowSlide]
   stageFrame.dataset.image = source
   if (stageCaption) stageCaption.textContent = stage.captions[activeWorkflowSlide]
@@ -392,7 +408,7 @@ function setAiMode(index) {
     item.textContent = tag
     return item
   }))
-  aiImage.src = mode.image
+  setScreenshotSource(aiImage, mode.image)
   aiImage.alt = mode.alt
   aiUrl.textContent = mode.url
   aiFrame.dataset.image = mode.image
@@ -510,7 +526,7 @@ document.querySelectorAll('.module-carousel').forEach((carousel) => {
     activeIndex = (nextIndex + slides.length) % slides.length
     carousel.classList.add('is-switching')
     const source = slides[activeIndex]
-    image.src = source
+    setScreenshotSource(image, source)
     image.alt = alts[activeIndex] || captions[activeIndex] || '平台功能截图'
     carousel.dataset.image = source
     if (currentLabel) currentLabel.textContent = String(activeIndex + 1)
@@ -586,7 +602,7 @@ const dialogClose = imageDialog?.querySelector('.dialog-close')
 
 function openImageDialog(source, alt) {
   if (!imageDialog || !dialogImage || !source) return
-  dialogImage.src = source
+  dialogImage.src = getScreenshotSource(source)
   dialogImage.alt = alt || '放大的平台界面截图'
   document.body.classList.add('is-dialog-open')
   if (typeof imageDialog.showModal === 'function') imageDialog.showModal()

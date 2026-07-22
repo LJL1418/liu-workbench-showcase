@@ -433,7 +433,12 @@ ul {
   transform: rotate(7deg);
 }
 
-.browser-frame > img {
+.browser-frame > picture {
+  display: block;
+}
+
+.browser-frame > img,
+.browser-frame > picture > img {
   width: 100%;
   aspect-ratio: 3024 / 1666;
   object-fit: cover;
@@ -1237,6 +1242,10 @@ ul {
   aspect-ratio: 3024 / 1666;
   object-fit: cover;
   object-position: top left;
+}
+
+.module-image picture {
+  display: block;
 }
 
 .module-image button {
